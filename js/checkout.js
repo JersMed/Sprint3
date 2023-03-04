@@ -14,41 +14,82 @@ function validate() {
 	// var errorName = document.getElementById("errorName");
 	// var errorEmail = document.getElementById("errorEmail");  
 	
+
+
+	const addClassError = (element, error) => {
+		if(error){
+			element.classList.add('is-invalid');
+			
+		}
+		else{
+			element.classList.remove('is-invalid');
+			element.classList.add('is-valid');
+		}
+	}
 	// Validate fields entered by the user: name, phone, password, and email
-	if(fName.value === "" || fName.value.length < 3 || fName.value.match(/^[a-zA-Z]+$/)){
-		$("#fName").addClass("alert-warning").text("Please enter a valid name");
-		//error++;
+	if(fName.value === "" || fName.value.length < 3 || !fName.value.match(/^[a-zA-Z]+$/)){
+		addClassError(fName, true);
+		errorName.innerHTML = "El nombre debe tener al menos 3 letras y solo puede contener letras.";
+		error++;
+	}
+	else{
+		addClassError(fName, false);
+		errorName.innerHTML = ""
 	}
 
-	if(fEmail.value === "" || fEmail.value.length < 3 || fEmail.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+	if(fEmail.value === "" || fEmail.value.length < 6 || !fEmail.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/
 	)){
-		$("#fEmail").addClass("alert-warning").text("Please enter a valid email address");
-		// error++;
+		addClassError(fEmail, true);
+		errorEmail.innerHTML = "El email debe contener al menos 6 caracteres.";
+
+		error++;
+	}
+	else{
+		addClassError(fEmail, false);
+		errorEmail.innerHTML = ""
 	}
 
 	if(fAddress.value === "" || fAddress.value.length < 3){
-		$("#fAddress").addClass("alert-warning").text("Please enter a valid address");
-		// error++;
+		addClassError(fAddress, true);
+		errorAddress.innerHTML = "La dirección debe tener al menos 3 caracteres.";
+		error++;
 	}
+	else{
+		addClassError(fAddress, false);
+		errorAddress.innerHTML = ""
+	}	
+	
 
-	if(fLastN.value === "" || fLastN.value.length < 3 || fLastN.value.match(/^[a-zA-Z]+$/)){
-		$("#fLastN").addClass("alert-warning").text("Please enter a valid Last Name");
-		//error++;
+	if(fLastN.value === "" || fLastN.value.length < 3 || !fLastN.value.match(/^[a-zA-Z]+$/)){
+		addClassError(fLastN, true);
+		errorLastN.innerHTML = "El apellido debe tener al menos 3 letras y solo puede contener letras.";
+		error++;
+	}
+	else{
+		addClassError(fLastN, false);
+		errorLastN.innerHTML = ""
 	}
 	
-	if(fPassword.value === "" || fPassword.value.length < 3 || fPassword.value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+	if(fPassword.value === "" || fPassword.value.length < 6 || fPassword.value.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	)){
-		$("#fPassword").addClass("alert-warning").text("Please enter Password with at least one number or letter");
-		//error++;
+		addClassError(fPassword, true);
+		errorPassword.innerHTML = "El password debe tener al menos 6 caracteres y debe contener al menos 1 letra o 1 numero.";
+		error++;
+	}
+	else{
+		addClassError(fPassword, false);
+		errorPassword.innerHTML = ""
 	}
 
-	if(fPhone.value === "" || fPhone.value.length < 3 || isNaN(fPhone.value)){
-		$("#fPhone").addClass("alert-warning").text("Please enter a valid Phone Number");
-		//error++;
+	if(fPhone.value === "" || fPhone.value.length < 9 || isNaN(fPhone.value)){
+		addClassError(fPhone, true);
+		errorPhone.innerHTML = "El telefono debe tener al menos 9 digitos y solo puede contener numeros.";
+		error++;
 	}
-
-
-
+	else{
+		addClassError(fPhone, false);
+		errorPhone.innerHTML = ""
+	}
 
 	// if(error>0){
 	// 	alert("Error");
