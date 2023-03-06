@@ -1,6 +1,9 @@
 
 // Exercise 6
-function validate() {
+function validate(event) {
+
+	event.preventDefault();
+
 	var error = 0;
 	// Get the input fields
 	var fName = document.getElementById("fName");
@@ -11,10 +14,12 @@ function validate() {
 	var fPhone = document.getElementById("fPhone");
 
 	// // Get the error elements
-	// var errorName = document.getElementById("errorName");
-	// var errorEmail = document.getElementById("errorEmail");  
-	
-
+	var errorName = document.getElementById("errorName");
+ 	var errorEmail = document.getElementById("errorEmail");
+  	var errorAddress = document.getElementById("errorAddress");
+  	var errorLastN = document.getElementById("errorLastN");
+  	var errorPassword = document.getElementById("errorPassword");
+  	var errorPhone = document.getElementById("errorPhone");
 
 	const addClassError = (element, error) => {
 		if(error){
