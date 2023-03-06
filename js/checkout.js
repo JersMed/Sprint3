@@ -12,13 +12,6 @@ function validate() {
 	var fPhone = document.getElementById("fPhone");
 
 	// // Get the error elements
-	// var errorName = document.getElementById("errorName");
- 	// var errorEmail = document.getElementById("errorEmail");
-  	// var errorAddress = document.getElementById("errorAddress");
-  	// var errorLastN = document.getElementById("errorLastN");
-  	// var errorPassword = document.getElementById("errorPassword");
-  	// var errorPhone = document.getElementById("errorPhone");
-
 	const addClassError = (element, error) => {
 		if(error){
 			element.classList.add('is-invalid');
@@ -95,14 +88,5 @@ function validate() {
 	}
 
 	return false;
-	// if (error > 0) {
-	// 	event.preventDefault();
-	// }
-
-	// if(error>0){
-	// 	alert("Error");
-	// }else{
-	// 	alert("OK");
-	// }
 
 }
